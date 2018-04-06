@@ -1,0 +1,49 @@
+--1
+-- SELECT project.name FROM project 
+--   JOIN project_uses_tech ON project_uses_tech.project_id = project.id
+--   JOIN tech ON project_uses_tech.tech_id = tech.id
+--   WHERE tech.name = 'JavaScript'
+--2
+-- SELECT tech.name FROM tech 
+--   JOIN project_uses_tech ON project_uses_tech.tech_id = tech.id
+--   JOIN project ON project_uses_tech.project_id = project.id
+--   WHERE project.name = 'Personal Website'
+--3
+-- SELECT tech.name FROM tech 
+--   LEFT JOIN project_uses_tech ON project_uses_tech.tech_id = tech.id
+--   WHERE project_id IS NULL
+--4
+-- SELECT project.name, COUNT(tech.id) FROM tech 
+--   JOIN project_uses_tech ON project_uses_tech.tech_id = tech.id
+--   JOIN project ON project_uses_tech.project_id = project.id
+--   GROUP BY project.name
+--5
+-- SELECT project.name FROM project 
+--   LEFT JOIN project_uses_tech ON project_uses_tech.project_id = project.id
+--   WHERE tech_id IS NULL
+--6
+-- SELECT tech.name, COUNT(project.id) FROM project 
+--   JOIN project_uses_tech ON project_uses_tech.project_id = project.id
+--   JOIN tech ON project_uses_tech.tech_id = tech.id
+--   GROUP BY tech.name
+--7
+-- SELECT project.name, tech.name FROM tech 
+--   JOIN project_uses_tech ON project_uses_tech.tech_id = tech.id
+--   JOIN project ON project_uses_tech.project_id = project.id
+--8
+-- SELECT DISTINCT tech.name FROM tech 
+--   JOIN project_uses_tech ON project_uses_tech.tech_id = tech.id
+--   JOIN project ON project_uses_tech.project_id = project.id
+--9
+-- SELECT DISTINCT tech.name FROM tech 
+--   LEFT JOIN project_uses_tech ON project_uses_tech.tech_id = tech.id
+--   WHERE project_id IS NULL
+--10
+-- SELECT DISTINCT project.name FROM project 
+--   JOIN project_uses_tech ON project_uses_tech.project_id = project.id
+--   JOIN tech ON project_uses_tech.tech_id = tech.id
+--11
+-- SELECT DISTINCT project.name FROM project  
+--   LEFT JOIN project_uses_tech ON project_uses_tech.project_id = project.id
+--   WHERE tech_id IS NULL
+--12
